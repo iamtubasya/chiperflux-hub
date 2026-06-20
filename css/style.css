@@ -199,8 +199,8 @@ body {
 }
 
 .avatar-img {
-    width: 88px;
-    height: 88px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
     object-fit: cover;
     border: 2px solid var(--bg);
@@ -225,8 +225,8 @@ body {
 
 .avatar {
     position: relative;
-    width: 88px;
-    height: 88px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
     background: linear-gradient(135deg, #1a1a3e, #0a0a1f);
     display: flex;
