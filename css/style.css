@@ -198,6 +198,16 @@ body {
     margin-bottom: 20px;
 }
 
+.avatar-img {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--bg);
+    z-index: 1;
+    position: relative;
+}
+
 
 .avatar-ring::before {
     content: '';
