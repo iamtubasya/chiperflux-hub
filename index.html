@@ -5,11 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ChiperFlux — Web3 x NFT x AI</title>
     <meta name="description" content="Crypto alpha, airdrop guides, trading insights & Web3 tools. Built by @Chiperflux.">
-    <meta property="og:title" content="ChiperFlux — Web3 x NFT x AI">
-    <meta property="og:description" content="Crypto alpha, airdrop guides, trading insights & Web3 tools.">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@Chiperflux">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -21,7 +16,68 @@
     <div class="bg-grid"></div>
     <div class="bg-glow bg-glow-1"></div>
     <div class="bg-glow bg-glow-2"></div>
-    <div class="bg-glow bg-glow-3"></div>
+
+    <!-- Sidebar Overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <span class="sidebar-logo">⚡</span>
+            <span class="sidebar-brand">ChiperFlux</span>
+            <button class="sidebar-close" onclick="toggleSidebar()">✕</button>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="#" class="nav-item active" data-section="home">
+                <span class="nav-icon">🏠</span>
+                <span>Home</span>
+            </a>
+            <a href="#" class="nav-item" data-section="threads">
+                <span class="nav-icon">🧵</span>
+                <span>Threads</span>
+            </a>
+            <a href="#" class="nav-item" data-section="portfolio">
+                <span class="nav-icon">💰</span>
+                <span>Portfolio</span>
+            </a>
+            <a href="#" class="nav-item" data-section="airdrops">
+                <span class="nav-icon">🪂</span>
+                <span>Airdrops</span>
+            </a>
+            <a href="#" class="nav-item" data-section="tools">
+                <span class="nav-icon">🔧</span>
+                <span>Tools</span>
+            </a>
+            <a href="#" class="nav-item" data-section="watchlist">
+                <span class="nav-icon">👁️</span>
+                <span>Watchlist</span>
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            <div class="sidebar-social">
+                <a href="https://x.com/Chiperflux" target="_blank">𝕏</a>
+                <a href="https://t.me/chiperflux" target="_blank">💬</a>
+                <a href="https://github.com/chiperflux" target="_blank">⌨</a>
+            </div>
+            <p class="sidebar-copy">© 2026 ChiperFlux</p>
+        </div>
+    </aside>
+
+    <!-- Top Bar -->
+    <header class="topbar">
+        <button class="hamburger" onclick="toggleSidebar()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="topbar-brand">
+            <span class="topbar-logo">⚡</span>
+            <span>ChiperFlux</span>
+        </div>
+        <div class="topbar-actions">
+            <span class="topbar-status">🟢</span>
+        </div>
+    </header>
 
     <!-- Live Ticker -->
     <div class="ticker-bar">
@@ -34,10 +90,9 @@
         </div>
     </div>
 
-    <main class="container">
-        <!-- Hero Profile -->
+    <main class="container" id="mainContent">
+        <!-- Profile Card -->
         <header class="hero">
-            <div class="hero-glow"></div>
             <div class="avatar-ring">
                 <img src="https://pbs.twimg.com/profile_images/2054141801959919616/UOGiacIk_400x400.jpg" alt="ChiperFlux" class="avatar-img" id="avatar">
                 <div class="status-pulse"></div>
@@ -62,7 +117,67 @@
             </div>
         </header>
 
-        <!-- Quick Links -->
+        <!-- Quick Actions -->
+        <section class="section">
+            <div class="quick-actions">
+                <a href="https://x.com/Chiperflux" target="_blank" class="action-btn">
+                    <span>𝕏</span>
+                    <small>Follow</small>
+                </a>
+                <a href="https://t.me/chiperflux" target="_blank" class="action-btn">
+                    <span>💬</span>
+                    <small>Telegram</small>
+                </a>
+                <a href="#" class="action-btn" onclick="shareProfile()">
+                    <span>📤</span>
+                    <small>Share</small>
+                </a>
+                <a href="https://github.com/chiperflux" target="_blank" class="action-btn">
+                    <span>⌨</span>
+                    <small>GitHub</small>
+                </a>
+            </div>
+        </section>
+
+        <!-- Dashboard Section -->
+        <section class="section" id="section-home">
+            <h2 class="section-title">
+                <span class="section-icon">📊</span>
+                Dashboard
+            </h2>
+            <div class="dashboard-grid">
+                <div class="dash-card">
+                    <div class="dash-icon">🔥</div>
+                    <div class="dash-info">
+                        <span class="dash-label">Trending</span>
+                        <span class="dash-value" id="trending">HYPE, SOL, JUP</span>
+                    </div>
+                </div>
+                <div class="dash-card">
+                    <div class="dash-icon">🪂</div>
+                    <div class="dash-info">
+                        <span class="dash-label">Airdrops</span>
+                        <span class="dash-value">3 Active</span>
+                    </div>
+                </div>
+                <div class="dash-card">
+                    <div class="dash-icon">📡</div>
+                    <div class="dash-info">
+                        <span class="dash-label">Signals</span>
+                        <span class="dash-value" id="signals">Bullish</span>
+                    </div>
+                </div>
+                <div class="dash-card">
+                    <div class="dash-icon">⏰</div>
+                    <div class="dash-info">
+                        <span class="dash-label">Updated</span>
+                        <span class="dash-value" id="lastUpdate">Just now</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Links Section -->
         <section class="section">
             <h2 class="section-title">
                 <span class="section-icon">🔗</span>
@@ -71,13 +186,22 @@
             <div class="links-grid" id="linksGrid"></div>
         </section>
 
-        <!-- Threads -->
-        <section class="section">
+        <!-- Threads Section -->
+        <section class="section" id="section-threads">
             <h2 class="section-title">
                 <span class="section-icon">🧵</span>
                 Latest Threads
             </h2>
             <div class="threads-grid" id="threadsGrid"></div>
+        </section>
+
+        <!-- Market Overview -->
+        <section class="section">
+            <h2 class="section-title">
+                <span class="section-icon">📈</span>
+                Market Overview
+            </h2>
+            <div class="market-grid" id="marketGrid"></div>
         </section>
 
         <!-- Footer -->
