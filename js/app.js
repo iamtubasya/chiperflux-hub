@@ -73,8 +73,8 @@ function renderProfile(p) {
     document.getElementById('following').textContent = formatNumber(p.stats.following);
     document.getElementById('threadCount').textContent = p.stats.threads;
 
-    const initials = p.name.split(' ').filter(w => w.length > 0).map(w => w[0]).slice(0, 2).join('').toUpperCase();
-    document.getElementById('avatar').textContent = initials;
+    // Avatar is now an img tag with Twitter profile picture
+    // No need to set initials
 }
 
 // Render links
