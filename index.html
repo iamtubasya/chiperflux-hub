@@ -7,213 +7,196 @@
     <meta name="description" content="Crypto alpha, airdrop guides, trading insights & Web3 tools. Built by @Chiperflux.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
-    <!-- Animated Background -->
-    <div class="bg-grid"></div>
-    <div class="bg-glow bg-glow-1"></div>
-    <div class="bg-glow bg-glow-2"></div>
-
-    <!-- Sidebar Overlay -->
-    <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
-
-    <!-- Sidebar -->
-    <aside class="sidebar" id="sidebar">
-        <div class="sidebar-header">
-            <span class="sidebar-logo">⚡</span>
-            <span class="sidebar-brand">ChiperFlux</span>
-            <button class="sidebar-close" onclick="toggleSidebar()">✕</button>
-        </div>
-        <nav class="sidebar-nav">
-            <a href="#" class="nav-item active" data-section="home">
-                <span class="nav-icon">🏠</span>
-                <span>Home</span>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="/" class="nav-logo">
+                <span class="logo-icon">⚡</span>
+                <span class="logo-text">chiperflux</span>
             </a>
-            <a href="#" class="nav-item" data-section="threads">
-                <span class="nav-icon">🧵</span>
-                <span>Threads</span>
-            </a>
-            <a href="#" class="nav-item" data-section="portfolio">
-                <span class="nav-icon">💰</span>
-                <span>Portfolio</span>
-            </a>
-            <a href="#" class="nav-item" data-section="airdrops">
-                <span class="nav-icon">🪂</span>
-                <span>Airdrops</span>
-            </a>
-            <a href="#" class="nav-item" data-section="tools">
-                <span class="nav-icon">🔧</span>
-                <span>Tools</span>
-            </a>
-            <a href="#" class="nav-item" data-section="watchlist">
-                <span class="nav-icon">👁️</span>
-                <span>Watchlist</span>
-            </a>
-        </nav>
-        <div class="sidebar-footer">
-            <div class="sidebar-social">
-                <a href="https://x.com/Chiperflux" target="_blank">𝕏</a>
-                <a href="https://t.me/chiperflux" target="_blank">💬</a>
-                <a href="https://github.com/chiperflux" target="_blank">⌨</a>
+            <div class="nav-links">
+                <a href="#threads">Threads</a>
+                <a href="#market">Market</a>
+                <a href="#connect">Connect</a>
             </div>
-            <p class="sidebar-copy">© 2026 ChiperFlux</p>
+            <div class="nav-actions">
+                <a href="https://x.com/Chiperflux" target="_blank" class="btn-nav">Follow</a>
+            </div>
+            <button class="nav-toggle" onclick="toggleNav()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
-    </aside>
+    </nav>
 
-    <!-- Top Bar -->
-    <header class="topbar">
-        <button class="hamburger" onclick="toggleSidebar()">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-        <div class="topbar-brand">
-            <span class="topbar-logo">⚡</span>
-            <span>ChiperFlux</span>
-        </div>
-        <div class="topbar-actions">
-            <span class="topbar-status">🟢</span>
-        </div>
-    </header>
-
-    <!-- Live Ticker -->
-    <div class="ticker-bar">
-        <div class="ticker-content" id="ticker">
-            <span class="ticker-item"><span class="ticker-symbol">BTC</span> <span class="ticker-price" id="btc-price">—</span></span>
-            <span class="ticker-item"><span class="ticker-symbol">ETH</span> <span class="ticker-price" id="eth-price">—</span></span>
-            <span class="ticker-item"><span class="ticker-symbol">SOL</span> <span class="ticker-price" id="sol-price">—</span></span>
-            <span class="ticker-item"><span class="ticker-symbol">BNB</span> <span class="ticker-price" id="bnb-price">—</span></span>
-            <span class="ticker-item"><span class="ticker-symbol">HYPE</span> <span class="ticker-price" id="hype-price">—</span></span>
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-inner">
+            <a href="#threads" onclick="toggleNav()">Threads</a>
+            <a href="#market" onclick="toggleNav()">Market</a>
+            <a href="#connect" onclick="toggleNav()">Connect</a>
+            <a href="https://x.com/Chiperflux" target="_blank" class="btn-primary">Follow on X</a>
         </div>
     </div>
 
-    <main class="container" id="mainContent">
-        <!-- Profile Card -->
-        <header class="hero">
-            <div class="avatar-ring">
-                <img src="https://pbs.twimg.com/profile_images/2054141801959919616/UOGiacIk_400x400.jpg" alt="ChiperFlux" class="avatar-img" id="avatar">
-                <div class="status-pulse"></div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-glow"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="hero-badge">
+                        <span class="badge-dot"></span>
+                        Live updates
+                    </div>
+                    <h1>Crypto alpha.<br><span class="gradient-text">One hub.</span></h1>
+                    <p>Real-time market data, airdrop guides, trading insights & Web3 tools — all in one place.</p>
+                    <div class="hero-actions">
+                        <a href="#threads" class="btn-primary">
+                            Explore threads
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                        <a href="https://x.com/Chiperflux" target="_blank" class="btn-outline">Follow @Chiperflux</a>
+                    </div>
+                </div>
+                <div class="hero-card">
+                    <div class="card-header">
+                        <span class="card-badge">
+                            <span class="badge-dot"></span>
+                            Live index
+                        </span>
+                        <span class="card-link">chiperflux.io</span>
+                    </div>
+                    <div class="card-content" id="liveIndex">
+                        <div class="index-row">
+                            <span class="index-symbol">BTC</span>
+                            <span class="index-price" id="idx-btc">—</span>
+                            <span class="index-change" id="idx-btc-change">—</span>
+                        </div>
+                        <div class="index-row">
+                            <span class="index-symbol">ETH</span>
+                            <span class="index-price" id="idx-eth">—</span>
+                            <span class="index-change" id="idx-eth-change">—</span>
+                        </div>
+                        <div class="index-row">
+                            <span class="index-symbol">SOL</span>
+                            <span class="index-price" id="idx-sol">—</span>
+                            <span class="index-change" id="idx-sol-change">—</span>
+                        </div>
+                        <div class="index-row">
+                            <span class="index-symbol">BNB</span>
+                            <span class="index-price" id="idx-bnb">—</span>
+                            <span class="index-change" id="idx-bnb-change">—</span>
+                        </div>
+                        <div class="index-row">
+                            <span class="index-symbol">HYPE</span>
+                            <span class="index-price" id="idx-hype">—</span>
+                            <span class="index-change" id="idx-hype-change">—</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span>one endpoint · every token · real-time data</span>
+                    </div>
+                </div>
             </div>
-            <h1 class="hero-name" id="name">ChiperFlux</h1>
-            <p class="hero-handle" id="handle">@Chiperflux</p>
-            <p class="hero-bio" id="bio">Web3 x NFT x AI • Smart creativity • Crypto & Blockchain</p>
-            
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <span class="stat-value" id="followers">—</span>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-value" id="followers">20</span>
                     <span class="stat-label">Followers</span>
                 </div>
-                <div class="stat-card">
-                    <span class="stat-value" id="following">—</span>
+                <div class="stat">
+                    <span class="stat-value" id="following">35</span>
                     <span class="stat-label">Following</span>
                 </div>
-                <div class="stat-card">
-                    <span class="stat-value" id="threadCount">—</span>
+                <div class="stat">
+                    <span class="stat-value" id="threadCount">3</span>
                     <span class="stat-label">Threads</span>
                 </div>
-            </div>
-        </header>
-
-        <!-- Quick Actions -->
-        <section class="section">
-            <div class="quick-actions">
-                <a href="https://x.com/Chiperflux" target="_blank" class="action-btn">
-                    <span>𝕏</span>
-                    <small>Follow</small>
-                </a>
-                <a href="https://t.me/chiperflux" target="_blank" class="action-btn">
-                    <span>💬</span>
-                    <small>Telegram</small>
-                </a>
-                <a href="#" class="action-btn" onclick="shareProfile()">
-                    <span>📤</span>
-                    <small>Share</small>
-                </a>
-                <a href="https://github.com/chiperflux" target="_blank" class="action-btn">
-                    <span>⌨</span>
-                    <small>GitHub</small>
-                </a>
-            </div>
-        </section>
-
-        <!-- Dashboard Section -->
-        <section class="section" id="section-home">
-            <h2 class="section-title">
-                <span class="section-icon">📊</span>
-                Dashboard
-            </h2>
-            <div class="dashboard-grid">
-                <div class="dash-card">
-                    <div class="dash-icon">🔥</div>
-                    <div class="dash-info">
-                        <span class="dash-label">Trending</span>
-                        <span class="dash-value" id="trending">HYPE, SOL, JUP</span>
-                    </div>
-                </div>
-                <div class="dash-card">
-                    <div class="dash-icon">🪂</div>
-                    <div class="dash-info">
-                        <span class="dash-label">Airdrops</span>
-                        <span class="dash-value">3 Active</span>
-                    </div>
-                </div>
-                <div class="dash-card">
-                    <div class="dash-icon">📡</div>
-                    <div class="dash-info">
-                        <span class="dash-label">Signals</span>
-                        <span class="dash-value" id="signals">Bullish</span>
-                    </div>
-                </div>
-                <div class="dash-card">
-                    <div class="dash-icon">⏰</div>
-                    <div class="dash-info">
-                        <span class="dash-label">Updated</span>
-                        <span class="dash-value" id="lastUpdate">Just now</span>
-                    </div>
+                <div class="stat">
+                    <span class="stat-value">5+</span>
+                    <span class="stat-label">Chains</span>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Links Section -->
-        <section class="section">
-            <h2 class="section-title">
-                <span class="section-icon">🔗</span>
-                Connect
-            </h2>
-            <div class="links-grid" id="linksGrid"></div>
-        </section>
+    <!-- Market Section -->
+    <section class="section" id="market">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">MARKET</span>
+                <h2>Live prices</h2>
+                <a href="#" class="section-link">All tokens →</a>
+            </div>
+            <div class="market-table">
+                <div class="table-header">
+                    <span class="col-rank">#</span>
+                    <span class="col-name">TOKEN</span>
+                    <span class="col-price">PRICE</span>
+                    <span class="col-change">24H</span>
+                </div>
+                <div id="marketRows"></div>
+            </div>
+        </div>
+    </section>
 
-        <!-- Threads Section -->
-        <section class="section" id="section-threads">
-            <h2 class="section-title">
-                <span class="section-icon">🧵</span>
-                Latest Threads
-            </h2>
+    <!-- Threads Section -->
+    <section class="section" id="threads">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">CONTENT</span>
+                <h2>Latest threads</h2>
+            </div>
             <div class="threads-grid" id="threadsGrid"></div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Market Overview -->
-        <section class="section">
-            <h2 class="section-title">
-                <span class="section-icon">📈</span>
-                Market Overview
-            </h2>
-            <div class="market-grid" id="marketGrid"></div>
-        </section>
-
-        <!-- Footer -->
-        <footer class="footer">
-            <div class="footer-brand">
-                <span class="footer-logo">⚡</span>
-                <span>ChiperFlux</span>
+    <!-- Connect Section -->
+    <section class="section" id="connect">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">CONNECT</span>
+                <h2>Join the community</h2>
             </div>
-            <p>Built with ❤️ by <a href="https://x.com/Chiperflux" target="_blank">@Chiperflux</a></p>
-            <p class="footer-sub">Powered by Vercel • Data from CoinGecko & Twitter</p>
-        </footer>
-    </main>
+            <div class="connect-grid" id="linksGrid"></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="footer-logo">
+                        <span class="logo-icon">⚡</span>
+                        <span class="logo-text">chiperflux</span>
+                    </a>
+                    <p>Crypto alpha, airdrop guides, trading insights & Web3 tools — all in one place.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Content</h4>
+                    <a href="#threads">Threads</a>
+                    <a href="#market">Market</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <a href="https://x.com/Chiperflux" target="_blank">X (Twitter)</a>
+                    <a href="https://t.me/chiperflux" target="_blank">Telegram</a>
+                    <a href="https://github.com/chiperflux" target="_blank">GitHub</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 ChiperFlux. All rights reserved.</span>
+                <span>built for builders who care about alpha</span>
+            </div>
+        </div>
+    </footer>
 
     <script src="js/app.js"></script>
 </body>

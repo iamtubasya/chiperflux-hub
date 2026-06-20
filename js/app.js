@@ -1,127 +1,86 @@
 // ============================================
-// ChiperFlux Hub — App Logic (Dashboard)
+// ChiperFlux — App Logic (zyloo.io style)
 // ============================================
 
 const DATA_URL = 'data/site.json';
 
-// Sidebar toggle
-function toggleSidebar() {
-    const sidebar = document.getElementById('sidebar');
-    const overlay = document.getElementById('sidebarOverlay');
-    const hamburger = document.querySelector('.hamburger');
-    
-    sidebar.classList.toggle('active');
-    overlay.classList.toggle('active');
-    hamburger.classList.toggle('active');
+// Mobile nav toggle
+function toggleNav() {
+    const toggle = document.querySelector('.nav-toggle');
+    const menu = document.getElementById('mobileMenu');
+    toggle.classList.toggle('active');
+    menu.classList.toggle('active');
 }
 
-// Share profile
-function shareProfile() {
-    const url = window.location.origin;
-    const text = '⚡ Check out ChiperFlux — Web3 x NFT x AI\n\nCrypto alpha, airdrop guides & trading insights:';
-    if (navigator.share) {
-        navigator.share({ title: 'ChiperFlux', text, url });
-    } else {
-        navigator.clipboard.writeText(text + '\n' + url).then(() => {
-            showToast('📋 Link copied!');
-        });
-    }
-}
-
-// Toast notification
-function showToast(msg) {
-    const toast = document.createElement('div');
-    toast.textContent = msg;
-    toast.style.cssText = 'position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#fff;color:#000;padding:12px 24px;border-radius:12px;font-size:14px;font-weight:600;z-index:999;animation:fadeInUp 0.3s;box-shadow:0 8px 32px rgba(0,0,0,0.3)';
-    document.body.appendChild(toast);
-    setTimeout(() => toast.remove(), 2000);
-}
-
-// CoinGecko price fetcher
+// Fetch prices from CoinGecko
 async function fetchPrices() {
     try {
         const res = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,solana,binancecoin,hyperliquid&vs_currencies=usd&include_24hr_change=true');
         const data = await res.json();
-        
-        const coins = {
-            'btc-price': data.bitcoin,
-            'eth-price': data.ethereum,
-            'sol-price': data.solana,
-            'bnb-price': data.binancecoin,
-            'hype-price': data.hyperliquid
-        };
 
-        for (const [id, coin] of Object.entries(coins)) {
-            const el = document.getElementById(id);
-            if (!el || !coin) continue;
-            const price = coin.usd >= 1000 
-                ? '$' + coin.usd.toLocaleString('en-US', { maximumFractionDigits: 0 })
-                : '$' + coin.usd.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-            const change = coin.usd_24h_change;
-            const arrow = change >= 0 ? '▲' : '▼';
-            const changeStr = Math.abs(change).toFixed(1);
-            el.textContent = price + ' ' + arrow + changeStr + '%';
-            el.className = 'ticker-price ' + (change >= 0 ? 'up' : 'down');
-        }
+        const coins = [
+            { id: 'bitcoin', symbol: 'BTC' },
+            { id: 'ethereum', symbol: 'ETH' },
+            { id: 'solana', symbol: 'SOL' },
+            { id: 'binancecoin', symbol: 'BNB' },
+            { id: 'hyperliquid', symbol: 'HYPE' }
+        ];
 
-        // Update market grid
-        renderMarket(data);
-        
-        // Update trending
-        const trending = document.getElementById('trending');
-        if (trending) {
-            const sorted = Object.entries(data).sort((a, b) => b[1].usd_24h_change - a[1].usd_24h_change);
-            trending.textContent = sorted.slice(0, 3).map(([k]) => k.replace('bitcoin','BTC').replace('ethereum','ETH').replace('solana','SOL').replace('binancecoin','BNB').replace('hyperliquid','HYPE')).join(', ');
-        }
-        
-        // Update signals
-        const signals = document.getElementById('signals');
-        if (signals) {
-            const avgChange = Object.values(data).reduce((sum, c) => sum + c.usd_24h_change, 0) / 5;
-            signals.textContent = avgChange > 1 ? '🟢 Bullish' : avgChange < -1 ? '🔴 Bearish' : '🟡 Neutral';
-        }
-        
-        // Update last update time
-        const lastUpdate = document.getElementById('lastUpdate');
-        if (lastUpdate) {
-            lastUpdate.textContent = new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
-        }
+        // Update live index in hero card
+        coins.forEach(coin => {
+            const d = data[coin.id];
+            if (!d) return;
+
+            const priceEl = document.getElementById('idx-' + coin.symbol.toLowerCase());
+            const changeEl = document.getElementById('idx-' + coin.symbol.toLowerCase() + '-change');
+
+            if (priceEl) {
+                priceEl.textContent = d.usd >= 1000
+                    ? '$' + d.usd.toLocaleString('en-US', { maximumFractionDigits: 0 })
+                    : '$' + d.usd.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+            }
+
+            if (changeEl) {
+                const change = d.usd_24h_change;
+                const arrow = change >= 0 ? '↑' : '↓';
+                changeEl.textContent = arrow + Math.abs(change).toFixed(0) + '%';
+                changeEl.className = 'index-change ' + (change >= 0 ? 'up' : 'down');
+            }
+        });
+
+        // Update market table
+        renderMarket(data, coins);
+
     } catch (e) {
         console.warn('Price fetch failed:', e);
     }
 }
 
-// Render market grid
-function renderMarket(data) {
-    const grid = document.getElementById('marketGrid');
-    if (!grid) return;
-    
-    const coins = [
-        { id: 'bitcoin', symbol: 'BTC', name: 'Bitcoin' },
-        { id: 'ethereum', symbol: 'ETH', name: 'Ethereum' },
-        { id: 'solana', symbol: 'SOL', name: 'Solana' },
-        { id: 'binancecoin', symbol: 'BNB', name: 'BNB' },
-        { id: 'hyperliquid', symbol: 'HYPE', name: 'Hyperliquid' }
-    ];
-    
-    grid.innerHTML = coins.map(coin => {
+// Render market table
+function renderMarket(data, coins) {
+    const container = document.getElementById('marketRows');
+    if (!container) return;
+
+    container.innerHTML = coins.map((coin, i) => {
         const d = data[coin.id];
         if (!d) return '';
-        const price = d.usd >= 1000 
+
+        const price = d.usd >= 1000
             ? '$' + d.usd.toLocaleString('en-US', { maximumFractionDigits: 0 })
             : '$' + d.usd.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
         const change = d.usd_24h_change;
         const changeClass = change >= 0 ? 'up' : 'down';
-        const arrow = change >= 0 ? '▲' : '▼';
-        return '<div class="market-item">' +
-            '<div class="market-left">' +
+        const arrow = change >= 0 ? '↑' : '↓';
+
+        return '<div class="market-row">' +
+            '<span class="market-rank">' + String(i + 1).padStart(2, '0') + '</span>' +
+            '<div class="market-info">' +
                 '<span class="market-symbol">' + coin.symbol + '</span>' +
-                '<span class="market-name">' + coin.name + '</span>' +
+                '<span class="market-name">' + coin.id.charAt(0).toUpperCase() + coin.id.slice(1) + '</span>' +
             '</div>' +
-            '<div class="market-right">' +
-                '<div class="market-price">' + price + '</div>' +
-                '<div class="market-change ' + changeClass + '">' + arrow + ' ' + Math.abs(change).toFixed(1) + '%</div>' +
-            '</div>' +
+            '<span class="market-price">' + price + '</span>' +
+            '<span class="market-change ' + changeClass + '">' + arrow + Math.abs(change).toFixed(1) + '%</span>' +
         '</div>';
     }).join('');
 }
@@ -137,13 +96,6 @@ async function loadData() {
     }
 }
 
-// Format number
-function formatNumber(n) {
-    if (n >= 1e6) return (n / 1e6).toFixed(1) + 'M';
-    if (n >= 1e3) return (n / 1e3).toFixed(1) + 'K';
-    return n.toString();
-}
-
 // Format date
 function formatDate(str) {
     const d = new Date(str);
@@ -155,84 +107,40 @@ function formatDate(str) {
     return d.toLocaleDateString('en-US', { day: 'numeric', month: 'short' });
 }
 
-// Render profile
-function renderProfile(p) {
-    document.getElementById('name').textContent = p.name;
-    document.getElementById('handle').textContent = p.handle;
-    document.getElementById('bio').textContent = p.bio;
-    document.getElementById('followers').textContent = formatNumber(p.stats.followers);
-    document.getElementById('following').textContent = formatNumber(p.stats.following);
-    document.getElementById('threadCount').textContent = p.stats.threads;
+// Render threads
+function renderThreads(threads) {
+    const grid = document.getElementById('threadsGrid');
+    if (!grid) return;
+
+    grid.innerHTML = threads.map(t =>
+        '<a href="thread.html?id=' + t.id + '" class="thread-card">' +
+            '<span class="thread-tag">' + t.tag + '</span>' +
+            '<h3 class="thread-title">' + t.title + '</h3>' +
+            '<p class="thread-excerpt">' + t.excerpt + '</p>' +
+            '<div class="thread-meta">' +
+                '<span>📖 ' + t.readTime + '</span>' +
+                '<span>' + formatDate(t.date) + '</span>' +
+            '</div>' +
+        '</a>'
+    ).join('');
 }
 
 // Render links
 function renderLinks(links) {
     const grid = document.getElementById('linksGrid');
-    grid.innerHTML = links.map(l => 
-        '<a href="' + l.url + '" target="_blank" rel="noopener" class="link-card animate-in">' +
-            '<span class="link-icon">' + l.icon + '</span>' +
-            '<div class="link-content">' +
-                '<div class="link-title">' + l.title + '</div>' +
-                '<div class="link-desc">' + l.description + '</div>' +
+    if (!grid) return;
+
+    grid.innerHTML = links.map(l =>
+        '<a href="' + l.url + '" target="_blank" rel="noopener" class="connect-card">' +
+            '<span class="connect-icon">' + l.icon + '</span>' +
+            '<div class="connect-info">' +
+                '<div class="connect-title">' + l.title + '</div>' +
+                '<div class="connect-desc">' + l.description + '</div>' +
             '</div>' +
-            '<span class="link-arrow">→</span>' +
+            '<span class="connect-arrow">→</span>' +
         '</a>'
     ).join('');
 }
-
-// Render threads
-function renderThreads(threads) {
-    const grid = document.getElementById('threadsGrid');
-    grid.innerHTML = threads.map(t => 
-        '<a href="thread.html?id=' + t.id + '" class="thread-card animate-in">' +
-            '<div class="thread-header">' +
-                '<span class="thread-tag">' + t.tag + '</span>' +
-                '<span class="thread-date">' + formatDate(t.date) + '</span>' +
-                '<span class="thread-read-time">📖 ' + t.readTime + '</span>' +
-            '</div>' +
-            '<h3 class="thread-title">' + t.title + '</h3>' +
-            '<p class="thread-excerpt">' + t.excerpt + '</p>' +
-            '<div class="thread-footer">' +
-                '<span class="thread-read-btn">Read Thread →</span>' +
-                '<span class="thread-share-btn" onclick="event.preventDefault(); event.stopPropagation(); shareThread(\'' + t.id + '\', \'' + t.title.replace(/'/g, "\\'") + '\')">📤</span>' +
-            '</div>' +
-        '</a>'
-    ).join('');
-}
-
-// Share thread
-function shareThread(id, title) {
-    const url = window.location.origin + '/thread.html?id=' + id;
-    const text = '🧵 ' + title + '\n\nRead full thread:';
-    if (navigator.share) {
-        navigator.share({ title, text, url });
-    } else {
-        navigator.clipboard.writeText(text + '\n' + url).then(() => {
-            showToast('📋 Link copied!');
-        });
-    }
-}
-
-// Sidebar navigation
-document.addEventListener('DOMContentLoaded', function() {
-    const navItems = document.querySelectorAll('.nav-item');
-    navItems.forEach(item => {
-        item.addEventListener('click', function(e) {
-            e.preventDefault();
-            navItems.forEach(i => i.classList.remove('active'));
-            this.classList.add('active');
-            
-            const section = this.dataset.section;
-            if (section === 'threads') {
-                document.getElementById('section-threads').scrollIntoView({ behavior: 'smooth' });
-            } else if (section === 'home') {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
-            
-            toggleSidebar();
-        });
-    });
-});
 
 // Init
 async function init() {
@@ -240,20 +148,19 @@ async function init() {
     setInterval(fetchPrices, 60000);
 
     const data = await loadData();
-    if (!data) {
-        document.querySelector('.container').innerHTML = 
-            '<div style="text-align:center;padding:100px 20px;">' +
-                '<h2 style="font-size:48px;margin-bottom:16px">⚠️</h2>' +
-                '<h3>Failed to load data</h3>' +
-                '<p style="color:#8888aa;margin-top:8px">Try refreshing the page</p>' +
-            '</div>';
-        return;
-    }
+    if (!data) return;
 
-    renderProfile(data.profile);
-    renderLinks(data.links);
+    // Update stats
+    const followersEl = document.getElementById('followers');
+    const followingEl = document.getElementById('following');
+    const threadCountEl = document.getElementById('threadCount');
+
+    if (followersEl) followersEl.textContent = data.profile.stats.followers;
+    if (followingEl) followingEl.textContent = data.profile.stats.following;
+    if (threadCountEl) threadCountEl.textContent = data.threads.length;
+
     renderThreads(data.threads);
-    document.getElementById('threadCount').textContent = data.threads.length;
+    renderLinks(data.links);
 }
 
 document.addEventListener('DOMContentLoaded', init);

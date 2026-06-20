@@ -5,70 +5,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thread — ChiperFlux</title>
     <meta name="description" content="Crypto thread by @Chiperflux">
-    <meta property="og:type" content="article">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@Chiperflux">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
-    <!-- Animated Background -->
-    <div class="bg-grid"></div>
-    <div class="bg-glow bg-glow-1"></div>
-    <div class="bg-glow bg-glow-2"></div>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="/" class="nav-logo">
+                <span class="logo-icon">⚡</span>
+                <span class="logo-text">chiperflux</span>
+            </a>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/#threads">Threads</a>
+                <a href="/#market">Market</a>
+            </div>
+            <div class="nav-actions">
+                <a href="https://x.com/Chiperflux" target="_blank" class="btn-nav">Follow</a>
+            </div>
+            <button class="nav-toggle" onclick="toggleNav()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-inner">
+            <a href="/" onclick="toggleNav()">Home</a>
+            <a href="/#threads" onclick="toggleNav()">Threads</a>
+            <a href="/#market" onclick="toggleNav()">Market</a>
+            <a href="https://x.com/Chiperflux" target="_blank" class="btn-primary">Follow on X</a>
+        </div>
+    </div>
 
     <main class="thread-page">
-        <!-- Back Button -->
-        <a href="/" class="back-btn">
+        <a href="/" class="back-link">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-            Back to Hub
+            Back to hub
         </a>
 
-        <!-- Thread Header -->
         <div class="thread-hero">
-            <div class="thread-hero-bg"></div>
-            <span class="thread-tag-lg" id="threadTag">—</span>
+            <span class="thread-tag" id="threadTag">—</span>
             <h1 class="thread-title-lg" id="threadTitle">Loading...</h1>
-            <div class="thread-meta">
+            <div class="thread-meta-lg">
                 <span id="threadDate">—</span>
-                <span class="meta-dot">•</span>
                 <span id="threadReadTime">—</span>
             </div>
         </div>
 
-        <!-- Tweet Thread -->
-        <div class="tweet-timeline">
-            <div class="timeline-line"></div>
-            <div id="tweetList"></div>
-        </div>
+        <div class="tweet-list" id="tweetList"></div>
 
-        <!-- Actions -->
         <div class="thread-actions">
-            <a id="twitterShareBtn" href="#" target="_blank" class="btn btn-primary">
+            <a id="twitterShareBtn" href="#" target="_blank" class="btn-primary">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                 Share on X
             </a>
-            <button onclick="copyLink()" class="btn btn-ghost">
+            <button onclick="copyLink()" class="btn-share">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
-                Copy Link
+                Copy link
             </button>
         </div>
 
-        <!-- Related Threads -->
-        <section class="section" style="margin-top:40px">
-            <h2 class="section-title">
-                <span class="section-icon">📖</span>
-                More Threads
-            </h2>
+        <section class="section" style="padding-top:40px;border-top:1px solid rgba(255,255,255,0.06)">
+            <div class="section-header">
+                <span class="section-label">MORE</span>
+                <h2>Other threads</h2>
+            </div>
             <div class="threads-grid" id="relatedThreads"></div>
         </section>
 
-        <!-- Footer -->
-        <footer class="footer">
-            <p><a href="/">← Back to ChiperFlux Hub</a></p>
+        <footer class="footer" style="margin-top:40px">
+            <div class="footer-bottom">
+                <a href="/">← Back to ChiperFlux Hub</a>
+            </div>
         </footer>
     </main>
 
