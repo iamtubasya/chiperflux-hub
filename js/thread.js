@@ -26,9 +26,9 @@ function formatDate(str) {
 
 function formatTweetText(text) {
     return text
-        .replace(/(#\w+)/g, '<span style="color:#00ffaa">$1</span>')
-        .replace(/(@\w+)/g, '<span style="color:#00ffcc">$1</span>')
-        .replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank" style="color:#00ffaa">$1</a>')
+        .replace(/(#\w+)/g, '<span style="color:#ccc">$1</span>')
+        .replace(/(@\w+)/g, '<span style="color:#aaa">$1</span>')
+        .replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank" style="color:#ccc">$1</a>')
         .replace(/\n/g, '<br>');
 }
 
@@ -75,7 +75,7 @@ function copyLink() {
     navigator.clipboard.writeText(window.location.href).then(() => {
         const toast = document.createElement('div');
         toast.textContent = '📋 Link copied!';
-        toast.style.cssText = 'position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#00ff88;color:#000;padding:12px 24px;border-radius:12px;font-size:14px;font-weight:600;z-index:999;animation:fadeInUp 0.3s;box-shadow:0 8px 32px rgba(0,255,136,0.4)';
+        toast.style.cssText = 'position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#fff;color:#000;padding:12px 24px;border-radius:12px;font-size:14px;font-weight:600;z-index:999;animation:fadeInUp 0.3s;box-shadow:0 8px 32px rgba(255,255,255,0.1)';
         document.body.appendChild(toast);
         setTimeout(() => toast.remove(), 2000);
     });

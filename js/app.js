@@ -122,7 +122,7 @@ function shareThread(id, title) {
         navigator.clipboard.writeText(`${text}\n${url}`).then(() => {
             const toast = document.createElement('div');
             toast.textContent = '📋 Link copied!';
-            toast.style.cssText = 'position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#00ff88;color:#000;padding:12px 24px;border-radius:12px;font-size:14px;font-weight:600;z-index:999;animation:fadeInUp 0.3s;box-shadow:0 8px 32px rgba(0,255,136,0.4)';
+            toast.style.cssText = 'position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#fff;color:#000;padding:12px 24px;border-radius:12px;font-size:14px;font-weight:600;z-index:999;animation:fadeInUp 0.3s;box-shadow:0 8px 32px rgba(255,255,255,0.1)';
             document.body.appendChild(toast);
             setTimeout(() => toast.remove(), 2000);
         });
