@@ -1,0 +1,517 @@
+/* ============================================
+   C h i p e r F l u x Hub — Dark Theme
+   ============================================ */
+
+:root {
+    --bg-primary: #0a0a0f;
+    --bg-secondary: #12121a;
+    --bg-card: #1a1a2e;
+    --bg-card-hover: #222240;
+    --text-primary: #e4e4e7;
+    --text-secondary: #a1a1aa;
+    --text-muted: #71717a;
+    --accent: #8b5cf6;
+    --accent-hover: #a78bfa;
+    --accent-glow: rgba(139, 92, 246, 0.3);
+    --green: #22c55e;
+    --border: #27272a;
+    --radius: 16px;
+    --radius-sm: 12px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 24px 16px;
+}
+
+/* ============================================
+   Profile Card
+   ============================================ */
+
+.profile-card {
+    text-align: center;
+    padding: 32px 24px;
+    background: var(--bg-secondary);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    margin-bottom: 24px;
+}
+
+.avatar-wrapper {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 16px;
+}
+
+.avatar {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), #ec4899);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    font-weight: 700;
+    color: white;
+    box-shadow: 0 0 30px var(--accent-glow);
+}
+
+.status-dot {
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    width: 16px;
+    height: 16px;
+    background: var(--green);
+    border-radius: 50%;
+    border: 3px solid var(--bg-secondary);
+}
+
+.name {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    background: linear-gradient(135deg, #e4e4e7, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.handle {
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.bio {
+    color: var(--text-secondary);
+    font-size: 14px;
+    max-width: 320px;
+    margin: 0 auto 20px;
+}
+
+.stats-row {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat-value {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.stat-label {
+    font-size: 12px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ============================================
+   Section
+   ============================================ */
+
+.section {
+    margin-bottom: 24px;
+}
+
+.section-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+    padding-left: 4px;
+}
+
+/* ============================================
+   Links Grid
+   ============================================ */
+
+.links-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.link-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 16px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.link-card:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.link-icon {
+    font-size: 24px;
+    width: 40px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.link-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.link-title {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.link-desc {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 2px;
+}
+
+.link-arrow {
+    color: var(--text-muted);
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+/* ============================================
+   Threads Grid
+   ============================================ */
+
+.threads-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.thread-card {
+    padding: 18px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: all 0.2s ease;
+    cursor: pointer;
+    display: block;
+}
+
+.thread-card:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.thread-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.thread-tag {
+    font-size: 12px;
+    padding: 4px 10px;
+    background: var(--accent-glow);
+    color: var(--accent);
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+.thread-date {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.thread-read-time {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-left: auto;
+}
+
+.thread-title {
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    line-height: 1.4;
+}
+
+.thread-excerpt {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.thread-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+}
+
+.thread-read-btn {
+    font-size: 13px;
+    color: var(--accent);
+    font-weight: 500;
+}
+
+.thread-share-btn {
+    font-size: 18px;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+}
+
+.thread-share-btn:hover {
+    opacity: 1;
+}
+
+/* ============================================
+   Footer
+   ============================================ */
+
+.footer {
+    text-align: center;
+    padding: 24px 0;
+    color: var(--text-muted);
+    font-size: 13px;
+}
+
+.footer a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.footer-sub {
+    font-size: 11px;
+    margin-top: 4px;
+    opacity: 0.5;
+}
+
+/* ============================================
+   Thread Page
+   ============================================ */
+
+.thread-page {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 24px 16px;
+}
+
+.thread-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 14px;
+    margin-bottom: 20px;
+    transition: color 0.2s;
+}
+
+.thread-back:hover {
+    color: var(--accent);
+}
+
+.thread-detail-header {
+    margin-bottom: 24px;
+}
+
+.thread-detail-title {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 12px;
+}
+
+.thread-detail-meta {
+    display: flex;
+    gap: 16px;
+    color: var(--text-muted);
+    font-size: 13px;
+}
+
+.tweet-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.tweet-card {
+    padding: 18px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 15px;
+    line-height: 1.7;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.tweet-card + .tweet-card {
+    border-top: 2px dashed var(--border);
+    border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+    margin-top: -1px;
+}
+
+.tweet-card:first-child {
+    border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+}
+
+.tweet-card:last-child {
+    border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+}
+
+.tweet-number {
+    display: inline-block;
+    font-size: 12px;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 8px;
+    opacity: 0.7;
+}
+
+.thread-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 24px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: var(--accent-hover);
+    box-shadow: 0 4px 20px var(--accent-glow);
+}
+
+.btn-secondary {
+    background: var(--bg-card);
+    color: var(--text-primary);
+    border: 1px solid var(--border);
+}
+
+.btn-secondary:hover {
+    border-color: var(--accent);
+}
+
+/* ============================================
+   Animations
+   ============================================ */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-in {
+    animation: fadeInUp 0.4s ease forwards;
+}
+
+.animate-in:nth-child(1) { animation-delay: 0.05s; }
+.animate-in:nth-child(2) { animation-delay: 0.1s; }
+.animate-in:nth-child(3) { animation-delay: 0.15s; }
+.animate-in:nth-child(4) { animation-delay: 0.2s; }
+.animate-in:nth-child(5) { animation-delay: 0.25s; }
+
+/* ============================================
+   Responsive
+   ============================================ */
+
+@media (max-width: 380px) {
+    .container {
+        padding: 16px 12px;
+    }
+    
+    .profile-card {
+        padding: 24px 16px;
+    }
+    
+    .stats-row {
+        gap: 20px;
+    }
+    
+    .name {
+        font-size: 20px;
+    }
+}
+
+/* ============================================
+   Scrollbar
+   ============================================ */
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-muted);
+}

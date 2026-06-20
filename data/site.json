@@ -1,0 +1,86 @@
+{
+  "profile": {
+    "name": "C h i p e r F l u x",
+    "handle": "@Chiperflux",
+    "bio": "Web3 x NFT x AI • Smart creativity • Crypto & Blockchain",
+    "avatar": "",
+    "stats": {
+      "followers": 20,
+      "following": 35,
+      "threads": 0
+    }
+  },
+  "links": [
+    {
+      "icon": "🐦",
+      "title": "Twitter",
+      "url": "https://x.com/Chiperflux",
+      "description": "Follow for daily updates"
+    },
+    {
+      "icon": "💬",
+      "title": "Telegram",
+      "url": "https://t.me/chiperflux",
+      "description": "Join the community"
+    },
+    {
+      "icon": "🔗",
+      "title": "GitHub",
+      "url": "https://github.com/chiperflux",
+      "description": "Open source projects"
+    }
+  ],
+  "threads": [
+    {
+      "id": "market-recap-20-june",
+      "title": "Crypto Market Recap — June 20: SOL Pumps 4%, Iran Shocks Oil",
+      "excerpt": "Real data from Twitter & market APIs. What happened today and what to watch next.",
+      "date": "2026-06-20",
+      "tag": "📊 Market",
+      "readTime": "5 min",
+      "tweets": [
+        "📊 CRYPTO MARKET RECAP — June 20, 2026\n\nReal data. No fluff.\nHere's what happened today 👇",
+        "1/ TOP 10 PRICE CHECK:\n\nBTC: $63,758 (+1.26%)\nETH: $1,725 (+1.53%)\nSOL: $71.72 (+4.08%) 🔥\nBNB: $585 (+1.17%)\nXRP: $1.14 (+1.04%)\nHYPE: $69.69 (-1.25%)\n\nSolana leading the pack today.",
+        "2/ 🔥 TRENDING ON COINGECKO:\n\n- RE (RE) — Rank #194\n- Aerodrome Finance (AERO) — Rank #101\n- Pudgy Penguins (PENGU) — Rank #114\n- Jupiter (JUP) — Rank #87\n- Hyperliquid (HYPE) — Rank #10\n- Backpack (BP) — Rank #193\n\nKeep these on your watchlist.",
+        "3/ 🐦 WHAT CRYPTO TWITTER IS SAYING:\n\n@binance: \"Sleep is temporary. Screenshots are forever.\"\n\n@XBITDEX: Morgan Stanley spot Bitcoin ETF (MSBT) recorded a rare signal this week.\n\n@ZNSConnect: New token launchpad — launch a token in one click with AI.",
+        "4/ 🌍 GEOPOLITICAL ALERT:\n\n🚨 Iran closes the Strait of Hormuz\n\nThis is HUGE for markets:\n- Oil prices spiking\n- Risk-off sentiment\n- BTC often dumps on geopolitical fear\n- But also = buying opportunity\n\nWatch closely.",
+        "5/ 🪂 AIRDROP WATCH:\n\nTrending projects without tokens:\n- Hyperliquid (HYPE) — already launched, watch for season 2\n- Jupiter (JUP) — Solana DEX, potential future rewards\n- Backpack (BP) — wallet + exchange\n\nFarm early, farm smart.",
+        "6/ 📈 WHAT TO WATCH TOMORROW:\n\n- SOL momentum — can it hold $70+?\n- BTC reaction to Iran news\n- ETH/BTC ratio — still weak\n- HYPE — new top 10, sustainable?\n\nFollow @Chiperflux for daily market recaps 🚀"
+      ]
+    },
+    {
+      "id": "hyperliquid-deep-dive",
+      "title": "Hyperliquid (HYPE): Why This Token Crashed Into Top 10",
+      "excerpt": "From zero to top 10 in months. What is Hyperliquid and why is everyone talking about it?",
+      "date": "2026-06-20",
+      "tag": "🔬 Deep Dive",
+      "readTime": "6 min",
+      "tweets": [
+        "🔬 DEEP DIVE: Hyperliquid (HYPE)\n\nFrom zero to TOP 10 in months.\nHere's why everyone is talking about it 👇",
+        "1/ WHAT IS HYPERLIQUID?\n\nHyperliquid is a decentralized perpetual exchange built on its own L1 blockchain.\n\nKey features:\n- On-chain order book (not AMM)\n- Up to 50x leverage\n- Near-instant execution\n- No gas fees for traders",
+        "2/ WHY IT BLEW UP:\n\n- CEX-like speed on a DEX\n- No KYC required\n- Airdrop to early users (massive)\n- Real product with real volume\n- Token HYPE launched and mooned\n\nCurrent rank: #10 by market cap\nPrice: $69.69",
+        "3/ THE NUMBERS:\n\n- Market Cap: Top 10 globally\n- 24h Volume: Billions\n- Users: Growing fast\n- Competitors: dYdX, GMX, Jupiter Perps\n\nHyperliquid is eating the perp DEX market.",
+        "4/ RISKS:\n\n⚠️ New chain — unproven at scale\n⚠️ Regulatory risk (perps = target)\n⚠️ Token unlock schedule — check vesting\n⚠️ Competition from dYdX v4, Jupiter\n\nNot financial advice. DYOR.",
+        "5/ HOW TO GET EXPOSURE:\n\n- Trade on Hyperliquid (earn points)\n- Buy HYPE on DEX/CEX\n- Provide liquidity\n- Wait for potential Season 2 airdrop\n\nThe earlier you engage, the better.",
+        "6/ BOTTOM LINE:\n\nHyperliquid is the hottest perp DEX right now.\nReal product. Real volume. Real users.\n\nBut it's already top 10 — are you early or late?\n\nFollow @Chiperflux for more deep dives 🔍"
+      ]
+    },
+    {
+      "id": "iran-strait-crypto-impact",
+      "title": "Iran Closes Strait of Hormuz — What It Means for Crypto",
+      "excerpt": "Breaking geopolitical news. How does this affect BTC, ETH, and your portfolio?",
+      "date": "2026-06-20",
+      "tag": "🌍 Macro",
+      "readTime": "4 min",
+      "tweets": [
+        "🌍 BREAKING: Iran closes the Strait of Hormuz\n\nThis is major.\nHere's what it means for crypto 👇",
+        "1/ WHAT HAPPENED:\n\nIran has closed the Strait of Hormuz — the world's most critical oil chokepoint.\n\n~20% of global oil passes through here.\n\nThis is a BIG deal for all markets.",
+        "2/ IMMEDIATE IMPACT:\n\n- Oil prices surging 📈\n- Stock futures dropping 📉\n- Gold pumping (safe haven)\n- USD strengthening\n- BTC? Uncertain.\n\nRisk-off mode activated.",
+        "3/ HISTORICAL PATTERN:\n\nGeopolitical shocks usually:\n1. BTC dumps short-term (risk-off)\n2. Then pumps as \"digital gold\" narrative kicks in\n3. Alts get hit harder than BTC\n\nThis happened with Russia/Ukraine 2022.",
+        "4/ WHAT TO DO:\n\n❌ Don't panic sell\n❌ Don't FOMO buy the dip immediately\n✅ Wait for dust to settle (24-48h)\n✅ Watch BTC dominance (if rising = alts bleeding)\n✅ Have stablecoins ready for opportunities",
+        "5/ CRYPTO TWITTER REACTION:\n\nFrom @GlobeEyeNews: \"BREAKING: Iran closes the Strait of Hormuz\"\n\nMarket is watching. Traders are positioning.\n\nThis could be the catalyst for a big move — either direction.",
+        "6/ BOTTOM LINE:\n\nGeopolitical risk = volatility.\nVolatility = opportunity.\n\nBut only if you're prepared.\n\nStay calm. Watch the charts. Follow @Chiperflux for real-time updates 📡"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thread — C h i p e r F l u x 🎖️</title>
+    <meta name="description" content="Crypto & Web3 threads from @Chiperflux">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@Chiperflux">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="thread-page">
+        <!-- Back Button -->
+        <a href="/" class="thread-back">← Back</a>
+
+        <!-- Thread Header -->
+        <div class="thread-detail-header">
+            <h1 class="thread-detail-title" id="threadTitle">Loading...</h1>
+            <div class="thread-detail-meta">
+                <span id="threadTag"></span>
+                <span id="threadDate"></span>
+                <span id="threadReadTime"></span>
+            </div>
+        </div>
+
+        <!-- Tweets -->
+        <div class="tweet-list" id="tweetList">
+            <!-- Populated by JS -->
+        </div>
+
+        <!-- Actions -->
+        <div class="thread-actions">
+            <a href="#" id="twitterShareBtn" target="_blank" class="btn btn-primary">
+                🐦 Share on Twitter
+            </a>
+            <button onclick="copyLink()" class="btn btn-secondary">
+                📋 Copy Link
+            </button>
+        </div>
+
+        <!-- Related Threads -->
+        <section class="section" style="margin-top:32px;">
+            <h2 class="section-title">📚 More Threads</h2>
+            <div class="threads-grid" id="relatedThreads">
+                <!-- Populated by JS -->
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Built with ❤️ by <a href="https://x.com/Chiperflux" target="_blank">@Chiperflux</a></p>
+            <p class="footer-sub">Powered by CACAMINE 🔥</p>
+        </footer>
+    </div>
+
+    <script src="js/thread.js"></script>
+</body>
+</html>
